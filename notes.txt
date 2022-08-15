@@ -11,3 +11,6 @@ Downgrade @testing-library/react to ^11.1.0 inside of the package.json file.
 If getting an error when running npm start, see this page https://stackoverflow.com/questions/42574648/cannot-resolve-module-react-dom
 Run the following to fix:
 npm install react@latest react-dom@latest
+
+react tests
+npm install @testing-library/react @testing-library/jest-dom --save-dev
