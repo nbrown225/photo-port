@@ -2,6 +2,7 @@ import React from "react";
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 function Nav(){
+
     const categories = [
         { name: 'commercial', description: 'commercial stuff' },
         { name: 'portraits', description: 'portrait stuff' },
@@ -9,33 +10,35 @@ function Nav(){
         { name: 'landsape', description: 'landscape stuff' }
     ];
 
-    const handleClick = () => {
+    const handleClick = (item) => {
+        console.log(item);
         console.log('clicked');
+        return item;
     }
 
-    return(
-        <header data-testid="header" className="flex-row px-1">
+    return (
+      <header className="flex-row px-1">
         <h2>
-          <a href="/">
+          <a data-testid="link" href="/">
             <span role="img" aria-label="camera"> 📸</span> Oh Snap!
           </a>
         </h2>
         <nav>
           <ul className="flex-row">
             <li className="mx-2">
-              <a href="#about" onClick={() => handleClick()}>
+              <a data-testid="about" href="#about" onClick={() => handleClick("About")}>
                 About me
               </a>
             </li>
             <li className={"mx-2"}>
-              <span onClick={() => handleClick()}>
+              <span onClick={() => handleClick('Contact')}>
                 Contact
               </span>
             </li>
             {
               categories.map((category) => (
                 <li className="mx-1" key={category.name} >
-                  <span onClick={() => { handleClick(); }}>
+                  <span onClick={() => { handleClick(category.name); }}>
                    {capitalizeFirstLetter(category.name)}
                   </span>
                 </li>
@@ -45,6 +48,6 @@ function Nav(){
         </nav>
       </header>
     );
-}
+  }
 
 export default Nav;

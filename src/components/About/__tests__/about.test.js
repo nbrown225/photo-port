@@ -1,6 +1,5 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-
 // import jest-dom extend-expect 
 import '@testing-library/jest-dom/extend-expect';
 // import component being tested 'About'
